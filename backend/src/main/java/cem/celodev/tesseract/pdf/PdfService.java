@@ -41,7 +41,6 @@ public class PdfService {
             PDDocument pd = PDDocument.load(pdfInputStream);
             PDFRenderer pr = new PDFRenderer(pd);
             BufferedImage bi = pr.renderImageWithDPI(page, 300);
-
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(bi, "jpg", baos);
 

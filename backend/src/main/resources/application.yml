@@ -1,0 +1,12 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+
+tesseract:
+    language: en
+    data:
+        dpi: ${TESSERACT_DPI:300}
+        path: ${TESSDATA_PATH:tessdata}

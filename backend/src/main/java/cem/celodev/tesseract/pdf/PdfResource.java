@@ -17,20 +17,20 @@ import cem.celodev.tesseract.pdf.dto.TextPageDTO;
 import net.sourceforge.tess4j.TesseractException;
 
 @RestController
-@RequestMapping("api/pdf")
+@RequestMapping("api/v1/pdf/convert")
 public class PdfResource {
 
     @Autowired
     PdfService service;
 
-    @PostMapping("convert/image/{page}")
+    @PostMapping("image/{page}")
     public ResponseEntity<ByteArrayResource> convertPagePdfToImg(
             @RequestBody MultipartFile pdf,
             @PathVariable int page) throws IOException {
         return ResponseEntity.ok(service.convertPagePdfToImg(pdf.getInputStream(), page));
     }
 
-    @PostMapping("convert/text")
+    @PostMapping("text")
     public ResponseEntity<List<TextPageDTO>> getTextPages(@RequestBody MultipartFile pdf) throws IOException, TesseractException{
         return ResponseEntity.ok(service.getTextPages(pdf.getInputStream()));
     }
